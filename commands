@@ -1,0 +1,22 @@
+EntryLevelJobSearchApp
+
+// API (to fetch jobs from redis for displaying on frontend)
+node api/index.js
+
+//FRONTEND (frontend to display jobs)
+npx create-react-app client
+npm start
+
+//WORKER (cron job to periodically fetch jobs from github jobs and store to redis)
+node worker/index.js
+
+//REDIS (in-memory key-value store for saving jobs)
+
+sudo pacman -S redis
+
+systemctl start redis.service
+
+redis-cli
+exit
+get <key>
+ 
